@@ -1,23 +1,26 @@
 import React from "react";
+import { Card, Button } from "semantic-ui-react";
 
 const RequestItem = ({ title, reqBy, note, createdAt }) => {
   return (
-    <div className="card">
-      <div className="content">
-        <div className="header">{title}</div>
-        <div className="meta">
+    <Card>
+      <Card.Content>
+        <Card.Header>{title}</Card.Header>
+        <Card.Meta>
           Requested by {reqBy} <br />
           {createdAt}
-        </div>
-        <div className="description">
+        </Card.Meta>
+        <Card.Description>
           Note:
           <br /> {note}
-        </div>
-      </div>
-      <div className="extra content">
-        <div className="ui right floated inverted red button ">Remove</div>
-      </div>
-    </div>
+        </Card.Description>
+      </Card.Content>
+      <Card.Content extra>
+        <Button inverted color="red" floated="right">
+          Remove
+        </Button>
+      </Card.Content>
+    </Card>
   );
 };
 
