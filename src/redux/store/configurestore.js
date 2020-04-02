@@ -5,7 +5,7 @@ export default () => {
   // Store creation
   const store = createStore(
     combineReducers({
-      reducers
+      requests: reducers
     }),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   );
