@@ -8,7 +8,8 @@ import App from "./Components/App/App";
 import configureStore from "../src/redux/store/configurestore";
 
 import { Provider } from "react-redux";
-import { addRequest } from "./redux/actions/addRequest";
+import { addRequest, removeRequest } from "./redux/actions/requests";
+import { sortItems } from "./redux/actions/sort";
 import faker from "faker";
 const store = configureStore();
 
@@ -35,6 +36,8 @@ for (var i = 0; i < 15; i++) {
     })
   );
 }
+
+store.dispatch(sortItems({}));
 
 console.log(store.getState());
 

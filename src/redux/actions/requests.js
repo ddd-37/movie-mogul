@@ -17,3 +17,8 @@ export const addRequest = ({
     note
   }
 });
+
+export const removeRequest = (id = "") => ({
+  type: "REMOVE_REQUEST",
+  id
+});
