@@ -1,10 +1,10 @@
-import faker from "faker";
 import { v4 as uuidv4 } from "uuid";
 
 export const addRequest = ({
   createdAt = new Date().getTime(),
   title = "",
   type = "movie",
+  requestedBy = "",
   note = ""
 } = {}) => ({
   type: "NEW_REQUEST",
@@ -13,7 +13,7 @@ export const addRequest = ({
     title,
     type,
     id: uuidv4(),
-    requestedBy: faker.name.findName(),
+    requestedBy,
     note
   }
 });

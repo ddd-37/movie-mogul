@@ -1,11 +1,22 @@
 import React from "react";
 
-const RequestItem = ({ title, reqBy, note }) => {
+const RequestItem = ({ title, reqBy, note, createdAt }) => {
   return (
-    <div>
-      <p>Title: {title}</p>
-      <p>Requested By: {reqBy}</p>
-      <p>Note: {note}</p>
+    <div className="card">
+      <div className="content">
+        <div className="header">{title}</div>
+        <div className="meta">
+          Requested by {reqBy} <br />
+          {createdAt}
+        </div>
+        <div className="description">
+          Note:
+          <br /> {note}
+        </div>
+      </div>
+      <div className="extra content">
+        <div className="ui right floated inverted red button ">Remove</div>
+      </div>
     </div>
   );
 };

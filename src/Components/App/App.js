@@ -3,7 +3,7 @@ import RequestList from "../RequestList/RequestList";
 
 const App = () => {
   return (
-    <div>
+    <div className="ui container">
       <RequestList />
     </div>
   );
