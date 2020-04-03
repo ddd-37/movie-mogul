@@ -1,32 +1,49 @@
-import React from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { sortItems } from "../../redux/actions/sort";
 import { Dropdown } from "semantic-ui-react";
 
-const filterOptions = [
+const options = [
   {
-    key: "FILTER_BY_DATE",
-    text: "Most Recent",
-    value: "Most Recent"
-  },
-  {
-    key: "FILTER_BY_TITLE",
+    key: "title",
     text: "Tile",
-    value: "Tile"
+    value: "title"
   },
   {
-    key: "FILTER_BY_REQUESTEDBY",
+    key: "createdAt",
+    text: "Most Recent",
+    value: "createdAt"
+  },
+
+  {
+    key: "requestedBy",
     text: "Requested By",
-    value: "Requested By"
+    value: "requestedBy"
   }
 ];
 
-const VisibilityFilterDropdown = () => (
-  <div>
-    <Dropdown
-      placeholder="Filter requests by..."
-      selection
-      options={filterOptions}
-    />
-  </div>
-);
+class DropdownExampleControlled extends Component {
+  state = {};
 
-export default VisibilityFilterDropdown;
+  handleChange = (e, { value }) => this.setState({ value });
+
+  render() {
+    const { value } = this.state;
+    console.log("DropdownExampleControlled -> render -> value", value);
+    console.log(this.state);
+    if (value) {
+      this.props.dispatch(sortItems({ sortBy: value }));
+    }
+    return (
+      <Dropdown
+        onChange={this.handleChange}
+        options={options}
+        placeholder="Choose an option"
+        selection
+        value={value}
+      />
+    );
+  }
+}
+
+export default connect()(DropdownExampleControlled);

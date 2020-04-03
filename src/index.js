@@ -37,10 +37,6 @@ for (var i = 0; i < 15; i++) {
   );
 }
 
-store.dispatch(sortItems({}));
-
-console.log(store.getState());
-
 ReactDOM.render(
   <Provider store={store}>
     <App />
