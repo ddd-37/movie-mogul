@@ -1,7 +1,13 @@
 import React from "react";
+import { connect } from "react-redux";
+import { removeRequest } from "./../../../redux/actions/requests";
 import { Card, Button } from "semantic-ui-react";
 
-const RequestItem = ({ title, reqBy, note, createdAt }) => {
+const RequestItem = ({ id, title, reqBy, note, createdAt, dispatch }) => {
+  const handleRemoveClick = id => {
+    console.log(id);
+    dispatch(removeRequest(id));
+  };
   return (
     <Card>
       <Card.Content>
@@ -16,7 +22,12 @@ const RequestItem = ({ title, reqBy, note, createdAt }) => {
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
-        <Button inverted color="red" floated="right">
+        <Button
+          inverted
+          color="red"
+          floated="right"
+          onClick={() => handleRemoveClick(id)}
+        >
           Remove
         </Button>
       </Card.Content>
@@ -24,4 +35,4 @@ const RequestItem = ({ title, reqBy, note, createdAt }) => {
   );
 };
 
-export default RequestItem;
+export default connect()(RequestItem);

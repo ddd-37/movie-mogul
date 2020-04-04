@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { sortItems } from "../../redux/actions/sort";
 import { Dropdown } from "semantic-ui-react";

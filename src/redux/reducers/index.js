@@ -5,9 +5,8 @@ export default (state = [], action = {}) => {
     case "NEW_REQUEST":
       return [...state, action.request];
     case "REMOVE_REQUEST":
-      return [...state, action.request];
+      return [...state].filter(request => request.id !== action.id);
     case "SORT_ITEMS":
-      console.log(action.config);
       return [...state].sort(
         compareValues(action.config.sortBy, action.config.order)
       );

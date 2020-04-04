@@ -1,12 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Divider, Card } from "semantic-ui-react";
+import { Card } from "semantic-ui-react";
 import RequestItem from "./RequestItem/RequestItem";
 import moment from "moment";
 import VisibilityFilterDropdown from "../VisibilityFitlerDropDown/VisibilityFitlerDropDown";
 
 const RequestList = props => {
-  console.log("props", props);
   return (
     <>
       <div className="ui grid centered" style={{ marginBottom: "1rem" }}>
@@ -24,6 +23,7 @@ const RequestList = props => {
             <RequestItem
               createdAt={moment(item.createdAt).fromNow()}
               key={item.id}
+              id={item.id}
               title={item.title}
               reqBy={item.requestedBy}
               note={item.note}

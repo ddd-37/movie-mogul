@@ -8,8 +8,7 @@ import App from "./Components/App/App";
 import configureStore from "../src/redux/store/configurestore";
 
 import { Provider } from "react-redux";
-import { addRequest, removeRequest } from "./redux/actions/requests";
-import { sortItems } from "./redux/actions/sort";
+import { addRequest } from "./redux/actions/requests";
 import faker from "faker";
 const store = configureStore();
 
