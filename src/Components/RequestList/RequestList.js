@@ -10,7 +10,7 @@ const RequestList = props => {
     <>
       <div className="ui grid centered" style={{ marginBottom: "1rem" }}>
         <div>
-          <h1>Requests</h1>
+          <h1>Pending Requests</h1>
         </div>
         <div>
           <VisibilityFilterDropdown />

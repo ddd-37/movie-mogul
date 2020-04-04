@@ -4,10 +4,6 @@ import { removeRequest } from "./../../../redux/actions/requests";
 import { Card, Button } from "semantic-ui-react";
 
 const RequestItem = ({ id, title, reqBy, note, createdAt, dispatch }) => {
-  const handleRemoveClick = id => {
-    console.log(id);
-    dispatch(removeRequest(id));
-  };
   return (
     <Card>
       <Card.Content>
@@ -26,7 +22,7 @@ const RequestItem = ({ id, title, reqBy, note, createdAt, dispatch }) => {
           inverted
           color="red"
           floated="right"
-          onClick={() => handleRemoveClick(id)}
+          onClick={() => dispatch(removeRequest(id))}
         >
           Remove
         </Button>

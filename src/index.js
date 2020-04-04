@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter, NavLink } from "react-router-dom";
 
 // COMPONENTS
-import App from "./Components/App/App";
 
 //REDUX
 import configureStore from "../src/redux/store/configurestore";
@@ -10,6 +10,7 @@ import configureStore from "../src/redux/store/configurestore";
 import { Provider } from "react-redux";
 import { addRequest } from "./redux/actions/requests";
 import faker from "faker";
+import { AppRouter } from "./Components/AppRouter/AppRouter";
 const store = configureStore();
 
 // Set up some dumy date
@@ -25,7 +26,7 @@ function randomDate(start, end) {
   );
 }
 
-for (var i = 0; i < 15; i++) {
+for (var i = 0; i < 115; i++) {
   store.dispatch(
     addRequest({
       createdAt: randomDate(new Date(2020, 2, 1), new Date()),
@@ -36,9 +37,20 @@ for (var i = 0; i < 15; i++) {
   );
 }
 
-ReactDOM.render(
+const App = () => (
   <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById("root")
+    <BrowserRouter>
+      <header>
+        <NavLink to="/" activeClassName="active-link" exact>
+          Pending Requests
+        </NavLink>
+        <NavLink to="/addRequest" activeClassName="active-link" exact>
+          Add New Request
+        </NavLink>
+      </header>
+      <AppRouter />
+    </BrowserRouter>
+  </Provider>
 );
+
+ReactDOM.render(<App />, document.getElementById("root"));
