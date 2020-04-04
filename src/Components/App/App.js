@@ -3,7 +3,7 @@ import RequestList from "../RequestList/RequestList";
 
 const App = () => {
   return (
-    <div className="ui container" style={{ marginTop: "6rem" }}>
+    <div className="ui container" style={{ width: "98%", marginTop: "6rem" }}>
       <RequestList />
     </div>
   );
