@@ -26,7 +26,7 @@ function randomDate(start, end) {
   );
 }
 
-for (var i = 0; i < 115; i++) {
+for (var i = 0; i < 10; i++) {
   store.dispatch(
     addRequest({
       createdAt: randomDate(new Date(2020, 2, 1), new Date()),

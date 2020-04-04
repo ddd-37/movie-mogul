@@ -3,6 +3,7 @@ import { compareValues } from "./../../utils/compareValues";
 export default (state = [], action = {}) => {
   switch (action.type) {
     case "NEW_REQUEST":
+      console.log("NEW_REQUEST", action);
       return [...state, action.request];
     case "REMOVE_REQUEST":
       return [...state].filter(request => request.id !== action.id);
