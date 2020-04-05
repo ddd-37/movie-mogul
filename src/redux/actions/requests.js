@@ -18,7 +18,7 @@ export const addRequest = ({
   }
 });
 
-export const removeRequest = (id = "") => ({
+export const removeRequest = ({ id } = {}) => ({
   type: "REMOVE_REQUEST",
   id
 });
