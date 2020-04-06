@@ -1,28 +1,28 @@
-import React from "react";
-import { connect } from "react-redux";
+import React from "./node_modules/react";
+import { connect } from "./node_modules/react-redux";
 import { sortItems } from "../../redux/actions/sort";
-import { Dropdown } from "semantic-ui-react";
+import { Dropdown } from "./node_modules/semantic-ui-react";
 
 const options = [
   {
     key: "title",
     text: "Tile",
-    value: "title"
+    value: "title",
   },
   {
     key: "createdAt",
     text: "Most Recent",
-    value: "createdAt"
+    value: "createdAt",
   },
 
   {
     key: "requestedBy",
     text: "Requested By",
-    value: "requestedBy"
-  }
+    value: "requestedBy",
+  },
 ];
 
-const DropdownExampleControlled = props => {
+const DropdownExampleControlled = (props) => {
   const handleChange = (e, { value }) => {
     let order = "asc";
     if (value === "createdAt") {

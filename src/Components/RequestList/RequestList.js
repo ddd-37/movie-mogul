@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import { Card } from "semantic-ui-react";
 import RequestItem from "./RequestItem/RequestItem";
 import moment from "moment";
-import VisibilityFilterDropdown from "../VisibilityFitlerDropDown/VisibilityFitlerDropDown";
+import VisibilitySortDropdown from "../VisibilitySortDropdown/VisibilitySortDropdown";
 
-const RequestList = props => {
+const RequestList = (props) => {
   return (
     <>
       <div className="ui grid centered" style={{ marginBottom: "1rem" }}>
@@ -13,12 +13,12 @@ const RequestList = props => {
           <h1>Pending Requests</h1>
         </div>
         <div>
-          <VisibilityFilterDropdown />
+          <VisibilitySortDropdown />
         </div>
       </div>
 
       <Card.Group centered>
-        {props.requests.map(item => {
+        {props.requests.map((item) => {
           return (
             <RequestItem
               createdAt={moment(item.createdAt).fromNow()}
@@ -35,9 +35,9 @@ const RequestList = props => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    requests: state.requests
+    requests: state.requests,
   };
 };
 
