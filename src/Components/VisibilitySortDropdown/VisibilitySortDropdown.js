@@ -1,7 +1,7 @@
-import React from "./node_modules/react";
-import { connect } from "./node_modules/react-redux";
+import React from "react";
+import { connect } from "react-redux";
 import { sortItems } from "../../redux/actions/sort";
-import { Dropdown } from "./node_modules/semantic-ui-react";
+import { Dropdown } from "semantic-ui-react";
 
 const options = [
   {
@@ -22,7 +22,7 @@ const options = [
   },
 ];
 
-const DropdownExampleControlled = (props) => {
+const VisibilitySortDropdown = (props) => {
   const handleChange = (e, { value }) => {
     let order = "asc";
     if (value === "createdAt") {
@@ -41,4 +41,4 @@ const DropdownExampleControlled = (props) => {
   );
 };
 
-export default connect()(DropdownExampleControlled);
+export default connect()(VisibilitySortDropdown);
