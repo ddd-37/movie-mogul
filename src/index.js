@@ -11,6 +11,8 @@ import { Provider } from "react-redux";
 import { addRequest } from "./redux/actions/requests";
 import faker from "faker";
 import { AppRouter } from "./Components/AppRouter/AppRouter";
+import MyModal from "./Components/MyModal/MyModal";
+
 const store = configureStore();
 
 // Set up some dumy date
@@ -32,24 +34,14 @@ for (var i = 0; i < 10; i++) {
       createdAt: randomDate(new Date(2020, 2, 1), new Date()),
       requestedBy: dummyUsers[getRandomInt(3)],
       title: faker.commerce.productName(),
-      note: "Please find the original versions"
+      note: "Please find the original versions",
     })
   );
 }
 
 const App = () => (
   <Provider store={store}>
-    <BrowserRouter>
-      <header>
-        <NavLink to="/" activeClassName="active-link" exact>
-          Pending Requests
-        </NavLink>
-        <NavLink to="/addRequest" activeClassName="active-link" exact>
-          Add New Request
-        </NavLink>
-      </header>
-      <AppRouter />
-    </BrowserRouter>
+    <MyModal />
   </Provider>
 );
 
