@@ -3,7 +3,7 @@ import { Modal, Header, Button } from "semantic-ui-react";
 
 class MyModal extends Component {
   state = {
-    modalOpen: true,
+    modalOpen: false,
   };
 
   handleOpen = () => this.setState({ modalOpen: true });

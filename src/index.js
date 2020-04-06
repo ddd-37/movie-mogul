@@ -1,17 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, NavLink } from "react-router-dom";
 
 // COMPONENTS
-
+import { Header } from "semantic-ui-react";
 //REDUX
 import configureStore from "../src/redux/store/configurestore";
 
 import { Provider } from "react-redux";
 import { addRequest } from "./redux/actions/requests";
 import faker from "faker";
-import { AppRouter } from "./Components/AppRouter/AppRouter";
 import MyModal from "./Components/MyModal/MyModal";
+import RequestList from "./Components/RequestList/RequestList";
 
 const store = configureStore();
 
@@ -41,6 +40,8 @@ for (var i = 0; i < 10; i++) {
 
 const App = () => (
   <Provider store={store}>
+    <Header>Welcome to Movie Mogul</Header>
+    <RequestList />
     <MyModal />
   </Provider>
 );

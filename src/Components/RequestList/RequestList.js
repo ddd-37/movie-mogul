@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Card } from "semantic-ui-react";
+import { Card, Button } from "semantic-ui-react";
 import RequestItem from "./RequestItem/RequestItem";
 import moment from "moment";
 import VisibilitySortDropdown from "../VisibilitySortDropdown/VisibilitySortDropdown";
@@ -15,6 +15,9 @@ const RequestList = (props) => {
         <div>
           <VisibilitySortDropdown />
         </div>
+        <Button inverted color="blue" floated="right" onClick=>
+          New Request
+        </Button>
       </div>
 
       <Card.Group centered>
