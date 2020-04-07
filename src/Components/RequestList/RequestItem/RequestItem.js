@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { removeRequest } from "./../../../redux/actions/requests";
+import { openModal } from "./../../../redux/actions/modal";
 import { Card, Button } from "semantic-ui-react";
 
 const RequestItem = ({ id, title, reqBy, note, createdAt, dispatch }) => {
@@ -22,7 +22,7 @@ const RequestItem = ({ id, title, reqBy, note, createdAt, dispatch }) => {
           inverted
           color="red"
           floated="right"
-          onClick={() => dispatch(removeRequest(id))}
+          onClick={() => dispatch(openModal())}
         >
           Remove
         </Button>

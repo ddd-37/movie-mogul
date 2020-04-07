@@ -17,22 +17,17 @@ export const requestReducers = (state = [], action = {}) => {
 };
 
 const initialModalState = {
+  isVisible: false,
   modalType: null,
-  modalProps: {
-    open: false,
-  },
+  modalProps: {},
 };
 export const modalReducers = (state = initialModalState, action) => {
   switch (action.type) {
     case "OPEN_MODAL":
-      return {
-        modalProps: action.modalProps,
-        modalType: action.modalType,
-        type: action.type,
-      };
+      return { ...state, isVisible: true };
 
     case "CLOSE_MODAL":
-      return initialModalState;
+      return { ...state, isVisible: false };
     default:
       return state;
   }

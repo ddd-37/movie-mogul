@@ -15,7 +15,7 @@ const RequestList = (props) => {
         <div>
           <VisibilitySortDropdown />
         </div>
-        <Button inverted color="blue" floated="right" onClick=>
+        <Button inverted color="blue" floated="right">
           New Request
         </Button>
       </div>
