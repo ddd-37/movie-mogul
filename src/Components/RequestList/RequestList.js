@@ -41,6 +41,7 @@ const RequestList = ({ requests, dispatch }) => {
               key={item.id}
               id={item.id}
               title={item.title}
+              type={item.type}
               reqBy={item.requestedBy}
               note={item.note}
             />

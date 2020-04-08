@@ -3,7 +3,15 @@ import { connect } from "react-redux";
 import { openModal } from "./../../../redux/actions/modal";
 import { Card, Button } from "semantic-ui-react";
 
-const RequestItem = ({ id, title, reqBy, note, createdAt, dispatch }) => {
+const RequestItem = ({ id, title, type, reqBy, note, createdAt, dispatch }) => {
+  const handleEditClick = ({ id, title, type, reqBy, note, createdAt }) => {
+    dispatch(
+      openModal({
+        modalType: "requestForm",
+        modalProps: { id, title, type, reqBy, note, createdAt },
+      })
+    );
+  };
   const handleDeleteClick = (id) => {
     dispatch(openModal({ modalType: "deleteRequest", modalProps: { id } }));
   };
@@ -11,6 +19,7 @@ const RequestItem = ({ id, title, reqBy, note, createdAt, dispatch }) => {
   return (
     <Card>
       <Card.Content>
+        <Card.Meta>{type === "movie" ? "Movie" : "TV Show"}</Card.Meta>
         <Card.Header>{title}</Card.Header>
         <Card.Meta>
           Requested by {reqBy} <br />
@@ -22,6 +31,16 @@ const RequestItem = ({ id, title, reqBy, note, createdAt, dispatch }) => {
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
+        <Button
+          inverted
+          color="blue"
+          floated="left"
+          onClick={() =>
+            handleEditClick({ id, title, type, reqBy, note, createdAt })
+          }
+        >
+          Edit
+        </Button>
         <Button
           inverted
           color="red"

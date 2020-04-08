@@ -7,23 +7,21 @@ import Modal from "../Modal";
 
 class FormRequestModal extends Component {
   state = {
-    type: "movie",
-    title: null,
-    note: "",
+    type: this.props.modalProps.type || "movie",
+    title: this.props.modalProps.title || "",
+    note: this.props.modalProps.note || "",
     error: null,
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    if (!this.state.title) {
+    if (this.state.title === "") {
       this.setState({ error: "Please enter a title below!" });
-      return;
     } else {
       this.setState({ error: null });
+      this.props.dispatch(addRequest({ ...this.state }));
+      this.props.dispatch(closeModal());
     }
-
-    this.props.dispatch(addRequest({ ...this.state }));
-    this.props.dispatch(closeModal());
   };
 
   handleRadio = (e, { value }) => this.setState({ type: value });
@@ -37,6 +35,7 @@ class FormRequestModal extends Component {
   };
 
   render() {
+    console.log(this.props);
     return (
       <Modal onClose={this.onClose}>
         <Card>

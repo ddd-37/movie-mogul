@@ -33,6 +33,7 @@ for (var i = 0; i < 10; i++) {
       createdAt: randomDate(new Date(2020, 2, 1), new Date()),
       requestedBy: dummyUsers[getRandomInt(3)],
       title: faker.commerce.productName(),
+      type: i % 2 === 0 ? "movie" : "tv",
       note: "Please find the original versions",
     })
   );
