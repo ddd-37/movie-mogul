@@ -5,7 +5,7 @@ import { Card, Button } from "semantic-ui-react";
 
 const RequestItem = ({ id, title, reqBy, note, createdAt, dispatch }) => {
   const handleDeleteClick = (id) => {
-    dispatch(openModal({ modalType: "deleteRequest", payload: { id } }));
+    dispatch(openModal({ modalType: "deleteRequest", modalProps: { id } }));
   };
 
   return (

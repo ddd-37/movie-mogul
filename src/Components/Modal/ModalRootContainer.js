@@ -13,13 +13,13 @@ const ModalRootContainer = (props) => {
 
   const SpecificModal = MODAL_COMPONENTS[props.modalType];
 
-  return <SpecificModal payload={props.payload} />;
+  return <SpecificModal modalProps={props.modalProps} />;
 };
 
 const mapStateToProps = (state) => {
   return {
     modalType: state.modal.modalType,
-    payload: state.modal.payload,
+    modalProps: state.modal.modalProps,
   };
 };
 

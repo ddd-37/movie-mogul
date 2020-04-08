@@ -20,7 +20,9 @@ const DeleteRequestModal = (props) => {
         <Card.Content>
           <h1>Delete Request</h1>
           <p>Are you sure you want to delete this modal?</p>
-          <button onClick={() => confirmRequest(props.payload.id)}>Yes</button>
+          <button onClick={() => confirmRequest(props.modalProps.id)}>
+            Yes
+          </button>
           <button onClick={onClose}>No</button>
         </Card.Content>
       </Card>

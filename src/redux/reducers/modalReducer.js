@@ -7,7 +7,7 @@ export const modalReducers = (state = initialModalState, action) => {
       return {
         ...state,
         modalType: action.modalType,
-        payload: { ...action.payload },
+        modalProps: { ...action.modalProps },
       };
 
     case "CLOSE_MODAL":
