@@ -4,6 +4,10 @@ import { openModal } from "./../../../redux/actions/modal";
 import { Card, Button } from "semantic-ui-react";
 
 const RequestItem = ({ id, title, reqBy, note, createdAt, dispatch }) => {
+  const handleDeleteClick = (id) => {
+    dispatch(openModal({ modalType: "deleteRequest", payload: { id } }));
+  };
+
   return (
     <Card>
       <Card.Content>
@@ -22,7 +26,7 @@ const RequestItem = ({ id, title, reqBy, note, createdAt, dispatch }) => {
           inverted
           color="red"
           floated="right"
-          onClick={() => dispatch(openModal())}
+          onClick={() => handleDeleteClick(id)}
         >
           Remove
         </Button>

@@ -5,7 +5,7 @@ export const addRequest = ({
   title = "",
   type = "movie",
   requestedBy = "",
-  note = ""
+  note = "",
 } = {}) => ({
   type: "NEW_REQUEST",
   request: {
@@ -14,11 +14,11 @@ export const addRequest = ({
     type,
     id: uuidv4(),
     requestedBy,
-    note
-  }
+    note,
+  },
 });
 
-export const removeRequest = ({ id } = {}) => ({
+export const removeRequest = (id) => ({
   type: "REMOVE_REQUEST",
-  id
+  id,
 });

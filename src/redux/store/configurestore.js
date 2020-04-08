@@ -1,5 +1,6 @@
 import { createStore, combineReducers } from "redux";
-import { requestReducers, modalReducers } from "../reducers";
+import { requestReducers } from "./../reducers/requestReducer";
+import { modalReducers } from "./../reducers/modalReducer";
 
 export default () => {
   // Store creation

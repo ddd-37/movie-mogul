@@ -9,8 +9,8 @@ import configureStore from "../src/redux/store/configurestore";
 import { Provider } from "react-redux";
 import { addRequest } from "./redux/actions/requests";
 import faker from "faker";
-import MyModal from "./Components/MyModal/MyModal";
 import RequestList from "./Components/RequestList/RequestList";
+import ModalRootContainer from "./Components/Modal/ModalRootContainer";
 
 const store = configureStore();
 
@@ -42,7 +42,7 @@ const App = () => (
   <Provider store={store}>
     <Header>Welcome to Movie Mogul</Header>
     <RequestList />
-    <MyModal />
+    <ModalRootContainer />
   </Provider>
 );
 
