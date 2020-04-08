@@ -5,6 +5,7 @@ import { Card, Button } from "semantic-ui-react";
 
 const RequestItem = ({ id, title, type, reqBy, note, createdAt, dispatch }) => {
   const handleEditClick = ({ id, title, type, reqBy, note, createdAt }) => {
+    console.log("handleEditClick -> handleEditClick", id);
     dispatch(
       openModal({
         modalType: "requestForm",

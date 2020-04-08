@@ -18,6 +18,12 @@ export const addRequest = ({
   },
 });
 
+export const editRequest = ({ id, updates }) => ({
+  type: "EDIT_REQUEST",
+  id,
+  updates,
+});
+
 export const removeRequest = (id) => ({
   type: "REMOVE_REQUEST",
   id,

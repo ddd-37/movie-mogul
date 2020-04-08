@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Card, Form, Message } from "semantic-ui-react";
-import { addRequest } from "./../../../redux/actions/requests";
+import { addRequest, editRequest } from "./../../../redux/actions/requests";
 import { closeModal } from "../../../redux/actions/modal";
 import Modal from "../Modal";
 
@@ -19,7 +19,16 @@ class FormRequestModal extends Component {
       this.setState({ error: "Please enter a title below!" });
     } else {
       this.setState({ error: null });
-      this.props.dispatch(addRequest({ ...this.state }));
+      if (this.props.modalProps !== {}) {
+        this.props.dispatch(
+          editRequest({
+            id: this.props.modalProps.id,
+            updates: { ...this.state },
+          })
+        );
+      } else {
+        this.props.dispatch(addRequest({ ...this.state }));
+      }
       this.props.dispatch(closeModal());
     }
   };
@@ -35,7 +44,7 @@ class FormRequestModal extends Component {
   };
 
   render() {
-    console.log(this.props);
+    console.log(this.props.modalProps.id);
     return (
       <Modal onClose={this.onClose}>
         <Card>
