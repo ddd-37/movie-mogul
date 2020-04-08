@@ -1,9 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import DeleteRequestModal from "./DeleteRequestModal";
+import DeleteRequestModal from "./ModalTypes/DeleteRequestModal";
+import FormRequestModal from "./ModalTypes/FormRequestModal";
 
 const MODAL_COMPONENTS = {
   deleteRequest: DeleteRequestModal,
+  requestForm: FormRequestModal,
 };
 
 const ModalRootContainer = (props) => {
@@ -12,6 +14,7 @@ const ModalRootContainer = (props) => {
   }
 
   const SpecificModal = MODAL_COMPONENTS[props.modalType];
+  console.log("ModalRootContainer -> props.modalType", props.modalType);
 
   return <SpecificModal modalProps={props.modalProps} />;
 };

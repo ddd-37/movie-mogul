@@ -1,11 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
+import { openModal } from "./../../redux/actions/modal";
 import { Card, Button } from "semantic-ui-react";
 import RequestItem from "./RequestItem/RequestItem";
 import moment from "moment";
 import VisibilitySortDropdown from "../VisibilitySortDropdown/VisibilitySortDropdown";
 
-const RequestList = (props) => {
+const RequestList = ({ requests, dispatch }) => {
+  const handleOpenNewReqeust = () => {
+    console.log(
+      "handleOpenNewReqeust -> handleOpenNewReqeust",
+      handleOpenNewReqeust
+    );
+    dispatch(openModal({ modalType: "requestForm" }));
+  };
   return (
     <>
       <div className="ui grid centered" style={{ marginBottom: "1rem" }}>
@@ -15,13 +23,18 @@ const RequestList = (props) => {
         <div>
           <VisibilitySortDropdown />
         </div>
-        <Button inverted color="blue" floated="right">
+        <Button
+          inverted
+          color="blue"
+          floated="right"
+          onClick={handleOpenNewReqeust}
+        >
           New Request
         </Button>
       </div>
 
       <Card.Group centered>
-        {props.requests.map((item) => {
+        {requests.map((item) => {
           return (
             <RequestItem
               createdAt={moment(item.createdAt).fromNow()}
