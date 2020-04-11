@@ -2,8 +2,6 @@ import React, { Component } from "react";
 
 import "./../../styles/modal.scss";
 
-import { connect } from "react-redux";
-
 class Modal extends Component {
   listenKeyboard(e) {
     if (e.key === "Escape" || e.keyCode === 27) {

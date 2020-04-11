@@ -1,4 +1,4 @@
-import { v4 as uuidv4 } from "uuid";
+import db from "./../../Firestore/Firestore";
 
 export const addRequest = ({
   createdAt = new Date().getTime(),
@@ -12,7 +12,6 @@ export const addRequest = ({
     createdAt,
     title,
     type,
-    id: uuidv4(),
     requestedBy,
     note,
   },
@@ -28,3 +27,26 @@ export const removeRequest = (id) => ({
   type: "REMOVE_REQUEST",
   id,
 });
+
+export const getRequests = (requests) => ({
+  type: "GET_REQUESTS",
+  requests,
+});
+
+export const startGetRequests = () => {
+  return (dispatch) => {
+    const requests = [];
+    return db
+      .ref("requests")
+      .once("value")
+      .then((snapshot) => {
+        snapshot.forEach((child) => {
+          requests.push({
+            id: child.key,
+            ...child.val(),
+          });
+        });
+        dispatch(getRequests(requests));
+      });
+  };
+};

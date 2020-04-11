@@ -55,4 +55,6 @@ const RequestItem = ({ id, title, type, reqBy, note, createdAt, dispatch }) => {
   );
 };
 
-export default connect()(RequestItem);
+const mapStateToProps = (state) => ({ requests: state.requests });
+
+export default connect(mapStateToProps)(RequestItem);
