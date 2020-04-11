@@ -23,10 +23,21 @@ export const editRequest = ({ id, updates }) => ({
   updates,
 });
 
-export const removeRequest = (id) => ({
+export const removeRequest = ({ id } = {}) => ({
   type: "REMOVE_REQUEST",
   id,
 });
+
+export const startRemoveRequest = ({ id } = {}) => {
+  return (dispatch) => {
+    return db
+      .ref(`requests/${id}`)
+      .remove()
+      .then(() => {
+        dispatch(removeRequest({ id }));
+      });
+  };
+};
 
 export const getRequests = (requests) => ({
   type: "GET_REQUESTS",

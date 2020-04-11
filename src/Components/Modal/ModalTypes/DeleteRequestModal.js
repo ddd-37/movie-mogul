@@ -1,17 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Card, Button } from "semantic-ui-react";
-import { removeRequest } from "../../../redux/actions/requests";
+import { startRemoveRequest } from "../../../redux/actions/requests";
 import { closeModal } from "../../../redux/actions/modal";
 import Modal from "../Modal";
 
 const DeleteRequestModal = (props) => {
+  console.log("DeleteRequestModal -> props", props);
   const onClose = () => {
     props.dispatch(closeModal());
   };
 
   const confirmRequest = (id) => {
-    props.dispatch(removeRequest(id));
+    console.log("confirmRequest -> id", id);
+    props.dispatch(startRemoveRequest({ id }));
     props.dispatch(closeModal());
   };
   return (

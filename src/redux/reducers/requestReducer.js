@@ -10,7 +10,11 @@ export const requestReducers = (state = [], action = {}) => {
       return [...state, action.request];
 
     case "REMOVE_REQUEST":
-      return state.filter((request) => request.id !== action.id);
+      console.log("reducers", action.id);
+      return state.filter((request) => {
+        console.log(request.id !== action.id);
+        return request.id !== action.id;
+      });
 
     case "EDIT_REQUEST":
       console.log("EDIT_REQUEST - action", action);
