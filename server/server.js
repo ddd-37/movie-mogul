@@ -14,7 +14,7 @@ app.use(pino);
 
 // Serve up the index page no matter what
 app.get("*", (req, res) => {
-  res.sendFile(path.join(buildPath, "/build/index.html"));
+  res.sendFile(path.join(buildPath, "index.html"));
 });
 
 app.listen(port, () => {
