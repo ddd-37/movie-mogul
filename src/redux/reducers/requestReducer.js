@@ -6,7 +6,8 @@ export const requestReducers = (state = [], action = {}) => {
       console.log("GET_REQUESTS", action.requests);
       return action.requests;
 
-    case "NEW_REQUEST":
+    case "ADD_REQUEST":
+      console.log("requestReducers -> ADD_REQUEST", action);
       return [...state, action.request];
 
     case "REMOVE_REQUEST":

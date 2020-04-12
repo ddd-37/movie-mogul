@@ -12,7 +12,9 @@ const RequestList = ({ requests, dispatch }) => {
       "handleOpenNewReqeust -> handleOpenNewReqeust",
       handleOpenNewReqeust
     );
-    dispatch(openModal({ modalType: "requestForm" }));
+    dispatch(
+      openModal({ modalType: "requestForm", modalProps: { bNewRequest: true } })
+    );
   };
   return (
     <>

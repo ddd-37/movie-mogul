@@ -1,27 +1,54 @@
 import db from "./../../Firestore/Firestore";
 
-export const addRequest = ({
-  createdAt = new Date().getTime(),
-  title = "",
-  type = "movie",
-  requestedBy = "",
-  note = "",
-} = {}) => ({
-  type: "NEW_REQUEST",
-  request: {
-    createdAt,
-    title,
-    type,
-    requestedBy,
-    note,
-  },
+export const addRequest = (request) => ({
+  type: "ADD_REQUEST",
+  request,
 });
+
+export const startAddRequest = (requestData = {}) => {
+  const {
+    createdAt = new Date().getTime(),
+    title = "",
+    type = "movie",
+    requestedBy = "Devon",
+    note = "",
+  } = requestData;
+
+  const request = { createdAt, title, type, requestedBy, note };
+
+  return (dispatch) => {
+    return db
+      .ref("requests")
+      .push(request)
+      .then(() => {
+        dispatch(addRequest(request));
+      })
+      .catch((e) => {
+        console.log("ERROR - startAddRequest: ", e);
+      });
+  };
+};
 
 export const editRequest = ({ id, updates }) => ({
   type: "EDIT_REQUEST",
   id,
   updates,
 });
+
+export const startEditRequest = ({ id, updates }) => {
+  console.log("startEditRequest -> updates", updates);
+  return (dispatch) => {
+    return db
+      .ref(`requests/${id}`)
+      .update(updates)
+      .then(() => {
+        dispatch(editRequest({ id, updates }));
+      })
+      .catch((e) => {
+        console.log("ERROR - startEditRequest: ", e);
+      });
+  };
+};
 
 export const removeRequest = ({ id } = {}) => ({
   type: "REMOVE_REQUEST",

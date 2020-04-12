@@ -15,10 +15,4 @@ firebase.initializeApp(firebaseConfig);
 
 const db = firebase.database();
 
-db.ref("requests").push({
-  title: "Star wars",
-  note: "HD Copy",
-  type: "movie",
-});
-
 export { firebase, db as default };
