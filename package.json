@@ -23,7 +23,7 @@
     "semantic-ui-react": "^0.88.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node server/server.js",
     "dev": "concurrently \"node server/server.js\" \"npm run start\" ",
     "build": "react-scripts build",
     "test": "react-scripts test",
