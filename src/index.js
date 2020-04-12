@@ -14,7 +14,7 @@ import { startGetRequests } from "./redux/actions/requests";
 const store = configureStore();
 const App = (
   <Provider store={store}>
-    <Header>Welcome to Movie Mogul</Header>
+    <Header>Movie Mogul</Header>
     <RequestList />
     <ModalRootContainer />
   </Provider>
