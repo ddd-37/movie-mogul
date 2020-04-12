@@ -26,7 +26,11 @@
     "dev": "concurrently \"node server/server.js\" \"npm run start\" ",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build"
+  },
+  "engines": {
+    "node": "12.16.x"
   },
   "eslintConfig": {
     "extends": "react-app"
