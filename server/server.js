@@ -2,7 +2,8 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const bodyParser = require("body-parser");
-const buildPath = path.join(__dirname, "..", "build");
+const buildPath = path.join(__dirname, "..", "build/");
+console.log("buildPath", buildPath);
 const port = process.env.PORT || 3002;
 
 app.use(express.static(buildPath));
