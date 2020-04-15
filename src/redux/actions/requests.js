@@ -1,4 +1,4 @@
-import db from "./../../Firestore/Firestore";
+import db from "./../../Firebase/Firebase";
 
 export const addRequest = (request) => ({
   type: "ADD_REQUEST",

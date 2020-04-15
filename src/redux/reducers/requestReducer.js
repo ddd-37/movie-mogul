@@ -3,7 +3,6 @@ import { compareValues } from "../../utils/compareValues";
 export const requestReducers = (state = [], action = {}) => {
   switch (action.type) {
     case "GET_REQUESTS":
-      console.log("GET_REQUESTS", action.requests);
       return action.requests;
 
     case "ADD_REQUEST":
