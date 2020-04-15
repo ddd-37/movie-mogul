@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 // COMPONENTS
-import { Header } from "semantic-ui-react";
 import RequestList from "./Components/RequestList/RequestList";
 import ModalRootContainer from "./Components/Modal/ModalRootContainer";
 
@@ -14,29 +13,37 @@ import { login, logout } from "./redux/actions/auth";
 
 //FIREBASE
 import { firebase } from "./Firebase/Firebase";
-import Login from "./Components/Login/Login";
+import Header from "./Components/Header/Header";
 
 const store = configureStore();
-const App = (
+const jsx = (
   <Provider store={store}>
-    <Header>Movie Mogul</Header>
-    <Login />
+    <Header />
     <RequestList />
     <ModalRootContainer />
   </Provider>
 );
 
-console.log(firebase.auth.uid);
-firebase.auth().onAuthStateChanged((user) => {
-  console.log("user", user.uid);
-  if (user) {
-    store.dispatch(login(user.uid));
-  } else {
-    store.dispatch(logout());
+let hasRendered = false;
+// Function to handle when the app renders
+const renderApp = () => {
+  if (!hasRendered) {
+    ReactDOM.render(jsx, document.getElementById("root"));
+    hasRendered = true;
   }
-});
+};
+
+console.log("store", store.getState());
+
 ReactDOM.render(<p>Loading..</p>, document.getElementById("root"));
 
-store.dispatch(startGetRequests()).then(() => {
-  ReactDOM.render(App, document.getElementById("root"));
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    store.dispatch(login(user.uid));
+    renderApp();
+    console.log("user", user.uid);
+  } else {
+    store.dispatch(logout());
+    renderApp();
+  }
 });
