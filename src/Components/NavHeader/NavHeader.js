@@ -8,7 +8,7 @@ const NavHeader = () => {
       <Header as="h1" style={{ display: "inline-block" }}>
         Movie Mogul
       </Header>
-      <LoginOutBtn />
+      <LoginOutBtn isFloated="right" />
     </>
   );
 };

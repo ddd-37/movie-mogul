@@ -4,13 +4,13 @@ import { startLogin, startLogout } from "../../redux/actions/auth";
 
 import { Button } from "semantic-ui-react";
 
-const LoginOutBtn = ({ startLogin, startLogout, isLoggedIn }) => {
+const LoginOutBtn = ({ startLogin, startLogout, isLoggedIn, isFloated }) => {
   const btnText = isLoggedIn ? "Logout" : "LogIn";
   const btnColor = isLoggedIn ? "orange" : "blue";
   const action = isLoggedIn ? startLogout : startLogin;
 
   return (
-    <Button onClick={action} inverted color={btnColor} floated="right">
+    <Button onClick={action} inverted color={btnColor} floated={isFloated}>
       {btnText}
     </Button>
   );

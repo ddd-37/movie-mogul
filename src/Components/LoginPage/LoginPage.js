@@ -1,15 +1,13 @@
 import React from "react";
 import LoginOutBtn from "../LoginLogoutBtn/LoginOutBtn";
-import { Header } from "semantic-ui-react";
+import { Container, Header } from "semantic-ui-react";
 
 const LoginPage = () => {
   return (
-    <>
-      <Header as="h1" style={{ display: "inline-block" }}>
-        Welcome to Movie Mogul
-      </Header>
+    <Container textAlign="center" style={{ paddingTop: "3rem" }}>
+      <Header as="h1">Welcome to Movie Mogul</Header>
       <LoginOutBtn />
-    </>
+    </Container>
   );
 };
 
