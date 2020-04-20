@@ -5,7 +5,7 @@ import { startLogin, startLogout } from "../../redux/actions/auth";
 import { Button } from "semantic-ui-react";
 
 const LoginOutBtn = ({ startLogin, startLogout, isLoggedIn, isFloated }) => {
-  const btnText = isLoggedIn ? "Logout" : "LogIn";
+  const btnText = isLoggedIn ? "Logout" : "LogIn with your Google Account";
   const btnColor = isLoggedIn ? "orange" : "blue";
   const action = isLoggedIn ? startLogout : startLogin;
 
