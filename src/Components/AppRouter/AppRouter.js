@@ -6,7 +6,7 @@ import { createBrowserHistory } from "history";
 import PublicRoute from "./PublicRoute/PublicRoute";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import LoginPage from "./../LoginPage/LoginPage";
-import DashboardPage from "./DashboardPage/DashboardPage";
+import DashboardPage from "../DashboardPage/DashboardPage";
 
 // becuase we need to access to the history in index when we check for auth, weneed to create an instance of it here to pass around
 export const history = createBrowserHistory();

@@ -2,16 +2,19 @@ import React from "react";
 import { connect } from "react-redux";
 import { startLogin, startLogout } from "../../redux/actions/auth";
 
-const LoginOutBtn = ({ startLogin, startLogout, isLoggedIn }) =>
-  isLoggedIn ? (
-    <div>
-      <button onClick={startLogout}>Logout</button>
-    </div>
-  ) : (
-    <div>
-      <button onClick={startLogin}>LogIn</button>
-    </div>
+import { Button } from "semantic-ui-react";
+
+const LoginOutBtn = ({ startLogin, startLogout, isLoggedIn }) => {
+  const btnText = isLoggedIn ? "Logout" : "LogIn";
+  const btnColor = isLoggedIn ? "orange" : "blue";
+  const action = isLoggedIn ? startLogout : startLogin;
+
+  return (
+    <Button onClick={action} inverted color={btnColor} floated="right">
+      {btnText}
+    </Button>
   );
+};
 
 const mapStateToProps = (state) => {
   console.log(state);

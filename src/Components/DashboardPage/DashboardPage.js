@@ -1,5 +1,5 @@
 import React from "react";
-import RequestList from "./../../RequestList/RequestList";
+import RequestList from "../RequestList/RequestList";
 
 const DashboardPage = () => {
   return (

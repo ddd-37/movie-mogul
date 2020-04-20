@@ -2,15 +2,15 @@ import React from "react";
 import LoginOutBtn from "../LoginLogoutBtn/LoginOutBtn";
 import { Header } from "semantic-ui-react";
 
-const LoginPage = () => {
+const NavHeader = () => {
   return (
     <>
       <Header as="h1" style={{ display: "inline-block" }}>
-        Welcome to Movie Mogul
+        Movie Mogul
       </Header>
       <LoginOutBtn />
     </>
   );
 };
 
-export default LoginPage;
+export default NavHeader;
