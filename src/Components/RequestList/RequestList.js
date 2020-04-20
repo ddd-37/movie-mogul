@@ -8,10 +8,6 @@ import VisibilitySortDropdown from "../VisibilitySortDropdown/VisibilitySortDrop
 
 const RequestList = ({ requests, dispatch }) => {
   const handleOpenNewReqeust = () => {
-    console.log(
-      "handleOpenNewReqeust -> handleOpenNewReqeust",
-      handleOpenNewReqeust
-    );
     dispatch(
       openModal({ modalType: "requestForm", modalProps: { bNewRequest: true } })
     );

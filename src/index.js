@@ -1,25 +1,25 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Redirect } from "react-router-dom";
 
 // COMPONENTS
-import RequestList from "./Components/RequestList/RequestList";
 import ModalRootContainer from "./Components/Modal/ModalRootContainer";
 
 //REDUX
 import configureStore from "../src/redux/store/configurestore";
 import { Provider } from "react-redux";
-import { startGetRequests } from "./redux/actions/requests";
 import { login, logout } from "./redux/actions/auth";
 
 //FIREBASE
 import { firebase } from "./Firebase/Firebase";
-import Header from "./Components/Header/Header";
+import AppRouter, { history } from "./Components/AppRouter/AppRouter";
+import { startGetRequests } from "./redux/actions/requests";
 
 const store = configureStore();
+
 const jsx = (
   <Provider store={store}>
-    <Header />
-    <RequestList />
+    <AppRouter />
     <ModalRootContainer />
   </Provider>
 );
@@ -40,10 +40,15 @@ ReactDOM.render(<p>Loading..</p>, document.getElementById("root"));
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     store.dispatch(login(user.uid));
-    renderApp();
-    console.log("user", user.uid);
+    store.dispatch(startGetRequests()).then(() => {
+      renderApp();
+      if (history.location.pathname === "/") {
+        history.push("/dashboard");
+      }
+    });
   } else {
     store.dispatch(logout());
     renderApp();
+    history.push("/");
   }
 });
