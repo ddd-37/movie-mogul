@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 
+import { connect } from "react-redux";
+
 import { Icon, Menu, Sidebar } from "semantic-ui-react";
 
 import Burger from "./Burger/Burger";
+import LoginOutBtn from "../LoginLogoutBtn/LoginOutBtn";
 
 class MobileSideBar extends Component {
   state = {
@@ -34,18 +37,14 @@ class MobileSideBar extends Component {
           width="thin"
           style={{ top: "3.9rem" }}
         >
-          <Menu.Item as="a">
-            <Icon name="home" />
-            Home
+          <Menu.Item>
+            <LoginOutBtn />
           </Menu.Item>
           <Menu.Item as="a">
             <Icon name="gamepad" />
             Games
           </Menu.Item>
-          <Menu.Item as="a">
-            <Icon name="camera" />
-            Channels
-          </Menu.Item>
+          <Menu.Item as="a">Channels</Menu.Item>
         </Sidebar>
       </>
     );
