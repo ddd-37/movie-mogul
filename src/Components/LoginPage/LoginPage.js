@@ -1,5 +1,5 @@
 import React from "react";
-import LoginOutBtn from "../LoginLogoutBtn/LoginOutBtn";
+import LoginOutBtn from "../ActionBtns/LoginLogoutBtn/LoginOutBtn";
 import { Container, Header } from "semantic-ui-react";
 
 const LoginPage = () => {

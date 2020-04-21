@@ -3,7 +3,7 @@ import React from "react";
 import { Header, Grid, Responsive } from "semantic-ui-react";
 
 import MobileSideBar from "./../MobileSideBar/MobileSideBar";
-import LoginOutBtn from "../LoginLogoutBtn/LoginOutBtn";
+import LoginOutBtn from "./../ActionBtns/LoginLogoutBtn/LoginOutBtn";
 
 const Navigation = () => {
   return (

@@ -1,17 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-import { openModal } from "./../../redux/actions/modal";
-import { Card, Button } from "semantic-ui-react";
+
+import { Card, Responsive } from "semantic-ui-react";
 import RequestItem from "./RequestItem/RequestItem";
 import moment from "moment";
 import VisibilitySortDropdown from "../VisibilitySortDropdown/VisibilitySortDropdown";
+import NewRequestBtn from "../ActionBtns/NewRequestBtn/NewRequestBtn";
 
-const RequestList = ({ requests, dispatch }) => {
-  const handleOpenNewReqeust = () => {
-    dispatch(
-      openModal({ modalType: "requestForm", modalProps: { bNewRequest: true } })
-    );
-  };
+const RequestList = ({ requests }) => {
   return (
     <>
       <div className="ui grid centered" style={{ marginBottom: "1rem" }}>
@@ -21,14 +17,9 @@ const RequestList = ({ requests, dispatch }) => {
         <div>
           <VisibilitySortDropdown />
         </div>
-        <Button
-          inverted
-          color="blue"
-          floated="right"
-          onClick={handleOpenNewReqeust}
-        >
-          New Request
-        </Button>
+        <Responsive minWidth={992}>
+          <NewRequestBtn />
+        </Responsive>
       </div>
 
       <Card.Group centered>

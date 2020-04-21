@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 
-import { connect } from "react-redux";
-
 import { Icon, Menu, Sidebar } from "semantic-ui-react";
 
 import Burger from "./Burger/Burger";
-import LoginOutBtn from "../LoginLogoutBtn/LoginOutBtn";
+import LoginOutBtn from "../ActionBtns/LoginLogoutBtn/LoginOutBtn";
 
 class MobileSideBar extends Component {
   state = {
