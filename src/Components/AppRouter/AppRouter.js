@@ -5,7 +5,7 @@ import { createBrowserHistory } from "history";
 // Components
 import PublicRoute from "./PublicRoute/PublicRoute";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
-import LoginPage from "./../LoginPage/LoginPage";
+import FirebaseUI from "./../FirebaseUI/FirebaseUI";
 import DashboardPage from "../DashboardPage/DashboardPage";
 
 // becuase we need to access to the history in index when we check for auth, weneed to create an instance of it here to pass around
@@ -14,7 +14,7 @@ const AppRouter = () => {
   return (
     <Router history={history}>
       <Switch>
-        <PublicRoute path="/" exact component={LoginPage} />
+        <PublicRoute path="/" exact component={FirebaseUI} />
         <PrivateRoute path="/dashboard" component={DashboardPage} />
       </Switch>
     </Router>
