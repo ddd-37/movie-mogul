@@ -4,13 +4,14 @@ import { Icon, Menu, Sidebar } from "semantic-ui-react";
 
 import Burger from "./Burger/Burger";
 import LoginOutBtn from "../ActionBtns/LoginLogoutBtn/LoginOutBtn";
+import NewRequestBtn from "../ActionBtns/NewRequestBtn/NewRequestBtn";
 
 class MobileSideBar extends Component {
   state = {
     isVisible: false,
   };
 
-  handleClickOnBurger = () => {
+  toggleSidebar = () => {
     this.setState({
       isVisible: !this.state.isVisible,
     });
@@ -20,10 +21,7 @@ class MobileSideBar extends Component {
     console.log(this.state);
     return (
       <>
-        <Burger
-          clicked={this.handleClickOnBurger}
-          isActive={this.state.isVisible}
-        />
+        <Burger clicked={this.toggleSidebar} isActive={this.state.isVisible} />
 
         <Sidebar
           as={Menu}
@@ -35,14 +33,12 @@ class MobileSideBar extends Component {
           width="thin"
           style={{ top: "3.9rem" }}
         >
+          <Menu.Item onClick={this.toggleSidebar}>
+            <NewRequestBtn />
+          </Menu.Item>
           <Menu.Item>
             <LoginOutBtn />
           </Menu.Item>
-          <Menu.Item as="a">
-            <Icon name="gamepad" />
-            Games
-          </Menu.Item>
-          <Menu.Item as="a">Channels</Menu.Item>
         </Sidebar>
       </>
     );
