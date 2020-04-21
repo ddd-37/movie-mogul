@@ -1,13 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Route, Redirect } from "react-router-dom";
-import NavHeader from "../../NavHeader/NavHeader";
+import Navigation from "../../Navigation/Navigation";
 
 const PrivateRoute = (props) => {
   console.log("PrivateRoute -> PrivateRoute", { ...props });
   return props.isAuthenticated ? (
     <>
-      <NavHeader />
+      <Navigation />
       <Route {...props} />
     </>
   ) : (

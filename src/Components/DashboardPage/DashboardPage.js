@@ -1,11 +1,12 @@
 import React from "react";
 import RequestList from "../RequestList/RequestList";
+import { Container } from "semantic-ui-react";
 
 const DashboardPage = () => {
   return (
-    <div>
+    <Container style={{ paddingTop: "5rem" }}>
       <RequestList />
-    </div>
+    </Container>
   );
 };
 
