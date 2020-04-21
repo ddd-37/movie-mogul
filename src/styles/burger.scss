@@ -1,0 +1,71 @@
+.Burger {
+  position: fixed;
+  z-index: 3;
+}
+
+.Burger svg {
+  position: absolute;
+  left: 0;
+}
+
+.Burger__triangle {
+  fill: white;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 1);
+}
+
+.Burger__inner,
+.Burger__inner:before,
+.Burger__inner:after {
+  width: 40px;
+  height: 2px;
+  background-color: #000;
+  border-radius: 4px;
+  position: absolute;
+  left: 0.5rem;
+  top: 1.25rem;
+  transition-property: transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease;
+}
+
+.Burger__inner:before,
+.Burger__inner:after {
+  display: block;
+  left: 0rem;
+  content: "";
+}
+
+.Burger__inner:before {
+  width: 30px;
+  top: 0.5rem;
+}
+
+.Burger__inner:after {
+  width: 25px;
+  top: 1rem;
+}
+
+.hamburger--3dx .hamburger-box {
+  perspective: 80px;
+}
+
+.Burger__inner {
+  transition: transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1),
+    background-color 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.hamburger--3dx .hamburger-inner::before,
+.hamburger--3dx .hamburger-inner::after {
+  transition: transform 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.Burger.is-active .Burger__inner {
+  background-color: transparent !important;
+  transform: rotateY(180deg);
+}
+.Burger.is-active .Burger__inner::before {
+  transform: translate3d(10px, 0, 0) rotate(45deg);
+}
+.Burger.is-active .Burger__inner::after {
+  width: 30px;
+  transform: translate3d(10px, -8px, 0) rotate(-45deg);
+}
