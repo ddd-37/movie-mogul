@@ -5,16 +5,14 @@ import { startRemoveRequest } from "../../../redux/actions/requests";
 import { closeModal } from "../../../redux/actions/modal";
 import Modal from "../Modal";
 
-const DeleteRequestModal = (props) => {
-  console.log("DeleteRequestModal -> props", props);
+const DeleteRequestModal = ({ modalProps, startRemoveRequest, closeModal }) => {
   const onClose = () => {
-    props.dispatch(closeModal());
+    closeModal();
   };
 
   const confirmRequest = (id) => {
-    console.log("confirmRequest -> id", id);
-    props.dispatch(startRemoveRequest({ id }));
-    props.dispatch(closeModal());
+    startRemoveRequest({ id });
+    closeModal();
   };
 
   return (
@@ -26,7 +24,7 @@ const DeleteRequestModal = (props) => {
           <Button
             inverted
             color="green"
-            onClick={() => confirmRequest(props.modalProps.id)}
+            onClick={() => confirmRequest(modalProps.id)}
           >
             Yes
           </Button>
@@ -39,4 +37,9 @@ const DeleteRequestModal = (props) => {
   );
 };
 
-export default connect()(DeleteRequestModal);
+const mapDispatchToProps = {
+  startRemoveRequest,
+  closeModal,
+};
+
+export default connect(undefined, mapDispatchToProps)(DeleteRequestModal);

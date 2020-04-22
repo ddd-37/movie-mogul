@@ -10,19 +10,16 @@ const RequestItem = ({
   userName,
   note,
   createdAt,
-  dispatch,
+  openModal,
 }) => {
   const handleEditClick = ({ id, title, type, userName, note, createdAt }) => {
-    console.log("handleEditClick -> handleEditClick", id);
-    dispatch(
-      openModal({
-        modalType: "requestForm",
-        modalProps: { id, title, type, userName, note, createdAt },
-      })
-    );
+    openModal({
+      modalType: "requestForm",
+      modalProps: { id, title, type, userName, note, createdAt },
+    });
   };
   const handleDeleteClick = (id) => {
-    dispatch(openModal({ modalType: "deleteRequest", modalProps: { id } }));
+    openModal({ modalType: "deleteRequest", modalProps: { id } });
   };
 
   return (
@@ -63,6 +60,10 @@ const RequestItem = ({
   );
 };
 
+const mapDispatchToProps = {
+  openModal,
+};
+
 const mapStateToProps = (state) => ({ requests: state.requests });
 
-export default connect(mapStateToProps)(RequestItem);
+export default connect(mapStateToProps, mapDispatchToProps)(RequestItem);
