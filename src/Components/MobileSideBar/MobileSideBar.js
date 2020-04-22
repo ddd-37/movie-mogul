@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 
-import { Icon, Menu, Sidebar } from "semantic-ui-react";
+import { Menu, Sidebar } from "semantic-ui-react";
 
 import Burger from "./Burger/Burger";
 import LoginOutBtn from "../ActionBtns/LoginLogoutBtn/LoginOutBtn";
 import NewRequestBtn from "../ActionBtns/NewRequestBtn/NewRequestBtn";
+import NavLinkBtn from "../ActionBtns/NavLinkBtn/NavLinkBtn";
 
 class MobileSideBar extends Component {
   state = {
@@ -30,11 +31,18 @@ class MobileSideBar extends Component {
           inverted
           vertical
           visible={this.state.isVisible}
-          width="thin"
+          width="5rem"
           style={{ top: "3.9rem" }}
+          onClick={this.toggleSidebar}
         >
-          <Menu.Item onClick={this.toggleSidebar}>
+          <Menu.Item>
             <NewRequestBtn />
+          </Menu.Item>
+          <Menu.Item>
+            <NavLinkBtn color="purple" url="/dashboard" text="Dashboard" />
+          </Menu.Item>
+          <Menu.Item>
+            <NavLinkBtn color="violet" url="/settings" text="Account" />
           </Menu.Item>
           <Menu.Item>
             <LoginOutBtn />

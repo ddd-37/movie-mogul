@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 const NavLinkBtn = ({ color, url, text }) => {
   return (
     <NavLink to={url}>
-      <Button inverted color={color}>
+      <Button fluid inverted color={color}>
         {text}
       </Button>
     </NavLink>

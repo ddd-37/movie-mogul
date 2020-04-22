@@ -1,8 +1,6 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
-
-import { Header, Button, Grid, Responsive } from "semantic-ui-react";
+import { Header, Grid, Responsive } from "semantic-ui-react";
 
 import MobileSideBar from "./../MobileSideBar/MobileSideBar";
 import LoginOutBtn from "./../ActionBtns/LoginLogoutBtn/LoginOutBtn";

@@ -10,7 +10,13 @@ const LoginOutBtn = ({ startLogin, startLogout, isLoggedIn, isFloated }) => {
   const action = isLoggedIn ? startLogout : startLogin;
 
   return (
-    <Button onClick={action} inverted color={btnColor} floated={isFloated}>
+    <Button
+      fluid
+      onClick={action}
+      inverted
+      color={btnColor}
+      floated={isFloated}
+    >
       {btnText}
     </Button>
   );

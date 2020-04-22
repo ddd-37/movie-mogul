@@ -11,8 +11,8 @@ const NewRequestBtn = ({ openModal }) => {
     openModal({ modalType: "requestForm", modalProps: { bNewRequest: true } });
   };
   return (
-    <Button inverted color="blue" onClick={handleOpenNewReqeust}>
-      New Request
+    <Button fluid inverted color="blue" onClick={handleOpenNewReqeust}>
+      Request
     </Button>
   );
 };
