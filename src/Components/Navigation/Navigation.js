@@ -13,7 +13,7 @@ const Navigation = () => {
         <Grid padded verticalAlign="middle" columns="equal">
           <Grid.Row color="violet">
             <Grid.Column width={10}>
-              <Header as="h2" inverted centered>
+              <Header as="h2" inverted>
                 Movie Mogul
               </Header>
             </Grid.Column>
