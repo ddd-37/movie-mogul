@@ -1,10 +1,13 @@
 import React from "react";
 import RequestList from "../RequestList/RequestList";
-import { Container } from "semantic-ui-react";
+import { Container, Header } from "semantic-ui-react";
 
 const DashboardPage = () => {
   return (
-    <Container style={{ paddingTop: "5rem" }}>
+    <Container>
+      <Header as="h1" textAlign="center" dividing style={{ padding: "2rem" }}>
+        Dashboard
+      </Header>
       <RequestList />
     </Container>
   );

@@ -6,7 +6,7 @@ import { Dropdown } from "semantic-ui-react";
 const options = [
   {
     key: "title",
-    text: "Tile",
+    text: "Title",
     value: "title",
   },
   {
@@ -35,7 +35,7 @@ const VisibilitySortDropdown = (props) => {
     <Dropdown
       onChange={handleChange}
       options={options}
-      placeholder="Choose an option"
+      placeholder="Sort by an option"
       selection
     />
   );

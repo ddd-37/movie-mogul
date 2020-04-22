@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { Card, Responsive } from "semantic-ui-react";
+import { Header, Card, Grid, Responsive } from "semantic-ui-react";
 import RequestItem from "./RequestItem/RequestItem";
 import moment from "moment";
 import VisibilitySortDropdown from "../VisibilitySortDropdown/VisibilitySortDropdown";
@@ -10,17 +10,16 @@ import NewRequestBtn from "../ActionBtns/NewRequestBtn/NewRequestBtn";
 const RequestList = ({ requests }) => {
   return (
     <>
-      <div className="ui grid centered" style={{ marginBottom: "1rem" }}>
-        <div>
-          <h1>Pending Requests</h1>
-        </div>
-        <div>
-          <VisibilitySortDropdown />
-        </div>
+      <Grid centered style={{ padding: "2rem" }}>
+        <Grid.Row>
+          <Header as="h3">Pending Requests</Header>
+        </Grid.Row>
+        <VisibilitySortDropdown />
+
         <Responsive minWidth={992}>
           <NewRequestBtn />
         </Responsive>
-      </div>
+      </Grid>
 
       <Card.Group centered>
         {requests.map((item) => {

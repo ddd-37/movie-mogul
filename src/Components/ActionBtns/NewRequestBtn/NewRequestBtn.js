@@ -7,7 +7,6 @@ import { openModal } from "./../../../redux/actions/modal";
 
 const NewRequestBtn = ({ openModal }) => {
   const handleOpenNewReqeust = () => {
-    console.log("click");
     openModal({ modalType: "requestForm", modalProps: { bNewRequest: true } });
   };
   return (
