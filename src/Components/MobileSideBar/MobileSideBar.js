@@ -31,7 +31,6 @@ class MobileSideBar extends Component {
           inverted
           vertical
           visible={this.state.isVisible}
-          width="5rem"
           style={{ top: "3.9rem" }}
           onClick={this.toggleSidebar}
         >
