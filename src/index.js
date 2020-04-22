@@ -1,6 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+// STYLES
+import "./styles/base.scss";
+
 // COMPONENTS
 import ModalRootContainer from "./Components/Modal/ModalRootContainer";
 

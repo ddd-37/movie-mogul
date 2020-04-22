@@ -17,7 +17,6 @@ const LoginOutBtn = ({ startLogin, startLogout, isLoggedIn, isFloated }) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return { isLoggedIn: state.auth.uid };
 };
 

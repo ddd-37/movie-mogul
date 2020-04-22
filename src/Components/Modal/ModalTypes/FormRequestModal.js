@@ -13,6 +13,8 @@ class FormRequestModal extends Component {
     type: this.props.modalProps.type || "movie",
     title: this.props.modalProps.title || "",
     note: this.props.modalProps.note || "",
+    uuid: this.props.user.uuid,
+    userName: this.props.user.displayName,
     error: null,
   };
 
@@ -99,4 +101,8 @@ class FormRequestModal extends Component {
   }
 }
 
-export default connect()(FormRequestModal);
+const mapStateToProps = (state) => {
+  return { user: state.user };
+};
+
+export default connect(mapStateToProps)(FormRequestModal);
