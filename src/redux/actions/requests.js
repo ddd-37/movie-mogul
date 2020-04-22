@@ -10,11 +10,12 @@ export const startAddRequest = (requestData = {}) => {
     createdAt = new Date().getTime(),
     title = "",
     type = "movie",
-    requestedBy = "Devon",
+    uuid = "",
+    userName = "",
     note = "",
   } = requestData;
 
-  const request = { createdAt, title, type, requestedBy, note };
+  const request = { createdAt, title, type, uuid, userName, note };
 
   return (dispatch) => {
     return db

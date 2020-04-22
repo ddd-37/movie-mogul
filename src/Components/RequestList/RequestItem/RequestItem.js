@@ -3,13 +3,21 @@ import { connect } from "react-redux";
 import { openModal } from "./../../../redux/actions/modal";
 import { Card, Button } from "semantic-ui-react";
 
-const RequestItem = ({ id, title, type, reqBy, note, createdAt, dispatch }) => {
-  const handleEditClick = ({ id, title, type, reqBy, note, createdAt }) => {
+const RequestItem = ({
+  id,
+  title,
+  type,
+  userName,
+  note,
+  createdAt,
+  dispatch,
+}) => {
+  const handleEditClick = ({ id, title, type, userName, note, createdAt }) => {
     console.log("handleEditClick -> handleEditClick", id);
     dispatch(
       openModal({
         modalType: "requestForm",
-        modalProps: { id, title, type, reqBy, note, createdAt },
+        modalProps: { id, title, type, userName, note, createdAt },
       })
     );
   };
@@ -23,7 +31,7 @@ const RequestItem = ({ id, title, type, reqBy, note, createdAt, dispatch }) => {
         <Card.Meta>{type === "movie" ? "Movie" : "TV Show"}</Card.Meta>
         <Card.Header>{title}</Card.Header>
         <Card.Meta>
-          Requested by {reqBy} <br />
+          Requested by {userName} <br />
           {createdAt}
         </Card.Meta>
         <Card.Description>
@@ -37,7 +45,7 @@ const RequestItem = ({ id, title, type, reqBy, note, createdAt, dispatch }) => {
           color="blue"
           floated="left"
           onClick={() =>
-            handleEditClick({ id, title, type, reqBy, note, createdAt })
+            handleEditClick({ id, title, type, userName, note, createdAt })
           }
         >
           Edit

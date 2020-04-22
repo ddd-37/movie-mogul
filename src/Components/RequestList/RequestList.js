@@ -30,7 +30,7 @@ const RequestList = ({ requests }) => {
               id={item.id}
               title={item.title}
               type={item.type}
-              reqBy={item.requestedBy}
+              userName={item.userName}
               note={item.note}
             />
           );
@@ -41,6 +41,7 @@ const RequestList = ({ requests }) => {
 };
 
 const mapStateToProps = (state) => {
+  console.log("mapStateToProps -> state", state);
   return {
     requests: state.requests,
   };
