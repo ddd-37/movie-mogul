@@ -13,6 +13,7 @@ import { login, logout } from "./redux/actions/auth";
 import { firebase, ui } from "./Firebase/Firebase";
 import AppRouter, { history } from "./Components/AppRouter/AppRouter";
 import { startGetRequests } from "./redux/actions/requests";
+import { getLoggedInUser } from "./redux/actions/user";
 import FirebaseUI from "./Components/FirebaseUI/FirebaseUI";
 
 const store = configureStore();
@@ -34,13 +35,13 @@ const renderApp = (content) => {
   }
 };
 
-console.log("store", store.getState());
-
+// ToDo - Make a better loader
 ReactDOM.render(<p>Loading..</p>, document.getElementById("root"));
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     store.dispatch(login(user.uid));
+    store.dispatch(getLoggedInUser({ user }));
     store.dispatch(startGetRequests()).then(() => {
       renderApp(userFound);
       if (history.location.pathname === "/") {
@@ -50,6 +51,7 @@ firebase.auth().onAuthStateChanged((user) => {
   } else {
     store.dispatch(logout());
     renderApp(<FirebaseUI />);
+    // ToDo - move to reducer
     ui.start("#firebaseui-auth-container", {
       signInOptions: [
         firebase.auth.EmailAuthProvider.PROVIDER_ID,
