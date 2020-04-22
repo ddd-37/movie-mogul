@@ -16,16 +16,23 @@ const DeleteRequestModal = (props) => {
     props.dispatch(startRemoveRequest({ id }));
     props.dispatch(closeModal());
   };
+
   return (
     <Modal onClose={onClose}>
       <Card>
         <Card.Content>
           <h1>Delete Request</h1>
           <p>Are you sure you want to delete this modal?</p>
-          <Button onClick={() => confirmRequest(props.modalProps.id)}>
+          <Button
+            inverted
+            color="green"
+            onClick={() => confirmRequest(props.modalProps.id)}
+          >
             Yes
           </Button>
-          <Button onClick={onClose}>No</Button>
+          <Button inverted color="red" onClick={onClose}>
+            No
+          </Button>
         </Card.Content>
       </Card>
     </Modal>
