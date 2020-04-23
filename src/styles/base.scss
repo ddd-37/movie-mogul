@@ -1,3 +1,30 @@
+body {
+  background: #292929;
+  background-image: linear-gradient(to bottom right, #272727, #242424);
+}
+
+.ui.header.inverted {
+  color: #f4f4f4;
+}
+
+.cards .ui.card {
+  background: #7d55d4;
+  background-image: linear-gradient(to bottom right, #3e2574, #7d55d4);
+}
+
+.cards .ui.card .content {
+  .meta,
+  .header,
+  .description {
+    color: #f0f0f0;
+  }
+}
+
+.cards .ui.card .extra {
+  background: #4912c0;
+  background-image: linear-gradient(to bottom right, #3a1095, #4912c0);
+}
+
 .NavLink {
   color: #fff;
 }

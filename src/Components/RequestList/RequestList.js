@@ -12,7 +12,9 @@ const RequestList = ({ requests }) => {
     <>
       <Grid centered style={{ padding: "2rem" }}>
         <Grid.Row>
-          <Header as="h3">Pending Requests</Header>
+          <Header as="h3" inverted>
+            Pending Requests
+          </Header>
         </Grid.Row>
         <VisibilitySortDropdown />
 

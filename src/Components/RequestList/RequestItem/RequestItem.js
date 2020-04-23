@@ -23,7 +23,7 @@ const RequestItem = ({
   };
 
   return (
-    <Card>
+    <Card raised>
       <Card.Content>
         <Card.Meta>{type === "movie" ? "Movie" : "TV Show"}</Card.Meta>
         <Card.Header>{title}</Card.Header>

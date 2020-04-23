@@ -41,7 +41,7 @@
           appId: "%REACT_APP_FACEBOOK_APP_ID%",
           cookie: true,
           xfbml: true,
-          version: "1",
+          version: "v1",
         });
 
         FB.AppEvents.logPageView();
@@ -55,7 +55,7 @@
         }
         js = d.createElement(s);
         js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        js.src = "https://connect.facebook.net/en_US/sdk.js&version=v1";
         fjs.parentNode.insertBefore(js, fjs);
       })(document, "script", "facebook-jssdk");
     </script>

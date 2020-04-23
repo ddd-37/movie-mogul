@@ -1,16 +1,17 @@
 import React from "react";
-import { Container, Header, Card } from "semantic-ui-react";
+import { Container, Header, Message } from "semantic-ui-react";
 
 const FirebaseUI = () => {
   return (
-    <Container fluid>
-      <Header as="h1" textAlign="centered">
-        Movie Mogul
-      </Header>
-      <Card centered>
-        <p>Sign in/up with your preferred method!</p>
+    <Container textAlign="center">
+      <Header as="h1">Movie Mogul</Header>
+      <Message compact>
+        <Message.Header>Sign in/up</Message.Header>
+        <p>
+          Feel free to choose your prefered method of signing into Movie Mogul
+        </p>
         <div id="firebaseui-auth-container"></div>
-      </Card>
+      </Message>
     </Container>
   );
 };
