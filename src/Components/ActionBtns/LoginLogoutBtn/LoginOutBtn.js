@@ -4,6 +4,7 @@ import { startLogin, startLogout } from "../../../redux/actions/auth";
 
 import { Button } from "semantic-ui-react";
 
+// ToDo - the LogIn feature of this now seems obsolete since we're using FirebaseUI
 const LoginOutBtn = ({ startLogin, startLogout, isLoggedIn, isFloated }) => {
   const btnText = isLoggedIn ? "Logout" : "LogIn with your Google Account";
   const btnColor = isLoggedIn ? "orange" : "blue";

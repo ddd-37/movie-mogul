@@ -59,6 +59,7 @@ firebase.auth().onAuthStateChanged((user) => {
       signInOptions: [
         firebase.auth.EmailAuthProvider.PROVIDER_ID,
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
       ],
       signInSuccessUrl: "/dashboard",
       // Other config options...
