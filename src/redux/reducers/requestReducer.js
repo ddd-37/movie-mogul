@@ -28,6 +28,7 @@ export const requestReducers = (state = [], action = {}) => {
 
     // ToDo - Think about if this is the right place for our sort stuff
     case "SORT_ITEMS":
+      console.log(action.config.sortBy);
       return [...state].sort(
         compareValues(action.config.sortBy, action.config.order)
       );

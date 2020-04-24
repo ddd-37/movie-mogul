@@ -6,19 +6,19 @@ import { Dropdown } from "semantic-ui-react";
 const options = [
   {
     key: "title",
-    text: "Title",
+    text: "By title",
     value: "title",
   },
   {
     key: "createdAt",
-    text: "Most Recent",
+    text: "By most recent",
     value: "createdAt",
   },
 
   {
-    key: "requestedBy",
-    text: "Requested By",
-    value: "requestedBy",
+    key: "userName",
+    text: "By user name",
+    value: "userName",
   },
 ];
 
