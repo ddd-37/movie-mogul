@@ -27,8 +27,7 @@ const RequestItem = ({
   return (
     <Card raised>
       <Card.Content>
-        <Card.Meta>{type === "movie" ? "Movie" : "TV Show"}</Card.Meta>
-        <Card.Header>{title}</Card.Header>
+        <Card.Header as="h2">{title}</Card.Header>
         <Card.Meta>
           Requested by {userName} <br />
           {createdAt}
@@ -39,7 +38,7 @@ const RequestItem = ({
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
-        {user.displayName === userName ? (
+        {user.displayName === userName || user.isAdmin ? (
           <>
             <Button
               inverted
