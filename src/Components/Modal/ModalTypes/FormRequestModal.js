@@ -25,6 +25,7 @@ class FormRequestModal extends Component {
     } else {
       this.setState({ error: null });
       if (this.props.modalProps.bNewRequest) {
+        console.log({ ...this.state });
         this.props.dispatch(startAddRequest({ ...this.state }));
       } else {
         this.props.dispatch(
