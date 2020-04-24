@@ -4,7 +4,9 @@ import { Container, Header, Message } from "semantic-ui-react";
 const FirebaseUI = () => {
   return (
     <Container textAlign="center">
-      <Header as="h1">Movie Mogul</Header>
+      <Header inverted as="h1">
+        Movie Mogul
+      </Header>
       <Message compact>
         <Message.Header>Sign in/up</Message.Header>
         <p>
