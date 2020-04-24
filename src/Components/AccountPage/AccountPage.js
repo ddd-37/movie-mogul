@@ -9,7 +9,13 @@ const AccountPage = ({ user }) => {
   console.log(user.providerData);
   return (
     <Container>
-      <Header as="h1" textAlign="center" dividing style={{ padding: "2rem" }}>
+      <Header
+        inverted
+        as="h1"
+        textAlign="center"
+        dividing
+        style={{ padding: "2rem" }}
+      >
         Account Settings
       </Header>
       <FormUpdateAccount />

@@ -28,9 +28,11 @@ class FormUpdateAccount extends Component {
 
   render() {
     return (
-      <Form size={"large"} onSubmit={this.handleSubmit} error>
+      <Form inverted size={"large"} onSubmit={this.handleSubmit} error>
         <Form.Field inline>
-          The way your name looks to people: {this.props.user.displayName}
+          <label>
+            The way your name looks to people: {this.props.user.displayName}
+          </label>
         </Form.Field>
         {this.state.error && <Message error content={this.state.error} />}
         <Form.Field inline>
@@ -45,7 +47,6 @@ class FormUpdateAccount extends Component {
         <Form.Button type="submit" inverted color="green">
           Submit
         </Form.Button>
-        {this.state.displayName}
       </Form>
     );
   }
