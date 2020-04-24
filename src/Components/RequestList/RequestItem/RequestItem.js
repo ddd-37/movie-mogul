@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { openModal } from "./../../../redux/actions/modal";
-import { Card, Button } from "semantic-ui-react";
+import { Card, Button, Message } from "semantic-ui-react";
 
 const RequestItem = ({
   id,
@@ -11,6 +11,7 @@ const RequestItem = ({
   note,
   createdAt,
   openModal,
+  user,
 }) => {
   const handleEditClick = ({ id, title, type, userName, note, createdAt }) => {
     openModal({
@@ -18,6 +19,7 @@ const RequestItem = ({
       modalProps: { id, title, type, userName, note, createdAt },
     });
   };
+
   const handleDeleteClick = (id) => {
     openModal({ modalType: "deleteRequest", modalProps: { id } });
   };
@@ -37,24 +39,30 @@ const RequestItem = ({
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
-        <Button
-          inverted
-          color="blue"
-          floated="left"
-          onClick={() =>
-            handleEditClick({ id, title, type, userName, note, createdAt })
-          }
-        >
-          Edit
-        </Button>
-        <Button
-          inverted
-          color="red"
-          floated="right"
-          onClick={() => handleDeleteClick(id)}
-        >
-          Remove
-        </Button>
+        {user.displayName === userName ? (
+          <>
+            <Button
+              inverted
+              color="blue"
+              floated="left"
+              onClick={() =>
+                handleEditClick({ id, title, type, userName, note, createdAt })
+              }
+            >
+              Edit
+            </Button>
+            <Button
+              inverted
+              color="red"
+              floated="right"
+              onClick={() => handleDeleteClick(id)}
+            >
+              Remove
+            </Button>
+          </>
+        ) : (
+          <p style={{ color: "violet" }}>Only editable by author</p>
+        )}
       </Card.Content>
     </Card>
   );
@@ -64,6 +72,9 @@ const mapDispatchToProps = {
   openModal,
 };
 
-const mapStateToProps = (state) => ({ requests: state.requests });
+const mapStateToProps = (state) => ({
+  requests: state.requests,
+  user: state.user,
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(RequestItem);

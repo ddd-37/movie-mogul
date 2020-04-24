@@ -10,7 +10,6 @@ const RequestList = ({ requests, type }) => {
     <>
       <Card.Group>
         {requests.map((item) => {
-          console.log(item.type);
           if (item.type === type) {
             return (
               <RequestItem
